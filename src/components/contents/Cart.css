@@ -1,0 +1,105 @@
+.container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-left: 25%;
+    margin-top: 100px;
+    width: 50%;
+}
+
+.shopping-cart .cart-item {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    margin-left: 30px;
+    width: 95%;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.shopping-cart .cart-item .cart-content span {
+    margin-top: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: red;
+}
+
+.shopping-cart .cart-item .cart-content {
+    width: 40%;
+    display: flex;
+}
+
+.shopping-cart .cart-item .cart-content img {
+    width: 70px;
+    height: 70px;
+}
+
+.shopping-cart .cart-item .cart-content .cart-title {
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.shopping-cart .cart-item .cart-quantity button {
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    width: 30px;
+}
+
+.shopping-cart .cart-item .cart-quantity input {
+    margin-left: -5px;
+    margin-right: -5px;
+    width: 50px;
+    height: 40px;
+    padding: 0px 20px;
+}
+
+.shopping-cart .cart-total {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.shopping-cart .cart-total b {
+    margin-left: 70%;
+    color: #e91e63;
+}
+
+.red-item {
+    color: red;
+}
+
+.personal-info {
+    margin-top: 30px;
+}
+
+.personal-info .form-control {
+    margin-left: 15%;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.personal-info .form-control p {
+    font-size: 20px;
+}
+
+.personal-info .form-control input {
+    height: 40px;
+    padding: 0px 25px;
+    font-size: 18px;
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+.personal-info .btn-buy {
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 45.5%;
+    padding: 10px 30px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    background: tomato;
+    border: 1px solid tomato;
+}

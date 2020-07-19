@@ -1,0 +1,20 @@
+/* ********SLIDE********** */
+
+.slide {
+    margin-top: 70px;
+    width: 100%;
+}
+
+.slide .slide-item {
+    width: 100%;
+    height: 700px;
+}
+
+@media screen and (max-width: 900px) {
+    .slide .slide-item {
+        height: 250px;
+    }
+}
+.hide {
+    display: none;
+}
