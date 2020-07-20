@@ -11,9 +11,9 @@ class App extends Component {
             <div>
                  <Header/>
                  {/* <Carousel/> */}
-                 {/* <Home /> */}
+                 <Home />
                  {/* <Detail /> */}
-                 <Cart />
+                 {/* <Cart /> */}
                  <Footer/>
             </div>
         );
