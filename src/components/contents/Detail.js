@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
 import './Detail.css'
 export default class Detail extends Component {
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         id : this.props.match.params.id
+    //     }
+    // }
+    // componentDidMount(){
+    //     console.log(this.state.id);
+    // }
     render() {
         return (
-            <div class="container">
+            <div class="container" id="container-detail">
         <div class="content">
             <div class="content-img">
                 <img src="https://fsport247.com/cdn1/images/202002/thumb_img/nhung-doi-sneaker-nu-nen-co-thumb-G1413-1580557901623.jpg" alt=""/>

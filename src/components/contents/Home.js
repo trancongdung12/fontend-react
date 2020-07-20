@@ -1,51 +1,47 @@
 import React, { Component } from 'react';
 import './Home.css'
+import {Link} from "react-router-dom";
 class Home extends Component {
     constructor(){
         super();
+        this.state ={
+            categories : []
+        }
     }
     componentDidMount(){
-        console.log(1);
+        fetch("http://127.0.0.1:8000/api/category")
+        .then(res => res.json())
+        .then(
+          (result) => {
+              this.setState({categories: result})
+          })
+        
     }
     render() {
         return (
             <div>
+                {this.state.categories.map((category)=>(
                 <div class="container">
                     <div class="content">
                         <div class="content-title">
-                            <div class="title">Bán Chạy Nhất</div>
+                        <div class="title">{category.name}</div>
                         </div>
                         <hr class="content-hr" />
                         <div class="content-item">
-                            <div class="card">
-                                <img class="card-img" src="https://fsport247.com/cdn1/images/202002/thumb_img/nhung-doi-sneaker-nu-nen-co-thumb-G1413-1580557901623.jpg" alt=""/>
-                                <p class="card-title">Giày van</p>
-                                <p class="card-price">1,000,000 đ</p>
+                            {category.products.map((item)=>(
+                                <div class="card">
+                                 <Link to={"trang-chu/chi-tiet/"+item.id}><img class="card-img" src={item.image} alt=""/> </Link>
+                                <p class="card-title">{item.name}</p>
+                                <p class="card-price">{item.price} đ</p>
+                               
                                 <button class="btn-add-cart"><i class="fas fa-shopping-basket"></i></button>
                             </div>
-                            <div class="card">
-                                <img class="card-img" src="https://fsport247.com/cdn1/images/202002/thumb_img/nhung-doi-sneaker-nu-nen-co-thumb-G1413-1580557901623.jpg" alt=""/>
-                                <p class="card-title">Giày van</p>
-                                <p class="card-price">1,000,000 đ</p>
-                                <button class="btn-add-cart"><i class="fas fa-shopping-basket"></i></button>
-                            </div>
-                            <div class="card">
-                                <img class="card-img" src="https://fsport247.com/cdn1/images/202002/thumb_img/nhung-doi-sneaker-nu-nen-co-thumb-G1413-1580557901623.jpg" alt=""/>
-                                <p class="card-title">Giày van</p>
-                                <p class="card-price">1,000,000 đ</p>
-                                <button class="btn-add-cart"><i class="fas fa-shopping-basket"></i></button>
-                            </div>
-                            <div class="card">
-                                <img class="card-img" src="https://fsport247.com/cdn1/images/202002/thumb_img/nhung-doi-sneaker-nu-nen-co-thumb-G1413-1580557901623.jpg" alt=""/>
-                                <p class="card-title">Giày van</p>
-                                <p class="card-price">1,000,000 đ</p>
-                                <button class="btn-add-cart"><i class="fas fa-shopping-basket"></i></button>
-                            </div>
+                            ))}
                         </div>
+                    </div>  
                 </div>
-               
-            </div>
-                 <div class="container">
+                ))}
+                 {/* <div class="container">
                  <div class="content">
                      <div class="content-title">
                          <div id="new-title" class="title">Bài Viết Mới</div>
@@ -83,7 +79,7 @@ class Home extends Component {
                      </div>
                  </div>
  
-             </div>
+             </div> */}
              </div>
 
         );

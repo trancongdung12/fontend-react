@@ -8,7 +8,7 @@ class Header extends Component {
                     <span class="fas fa-bars"></span></div>
                 <div class="logo">Dungx</div>
                 <div class="nav-items">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/trang-chu">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Blogs</a></li>
                     <li><a href="#">Contact</a></li>

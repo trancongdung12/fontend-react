@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import './Carousel.css'
 class Carousel extends Component {
-    constructor(){
-        super();
-        this.state={
-            index : 0
-        }
-    }
-    componentDidMount(){
-        setTimeout(this.setState({index:this.state.index+1}), 1000);
-
-    }
+    
+    
     render() {
-        console.log(this.state.index);
+       
         return (
         <div class="slide">
             <img class="slide-item" src="https://fsport247.com/cdn/afficheimg/giay-the-thao-1584664589.png" alt=""/>

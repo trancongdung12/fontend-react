@@ -3,7 +3,7 @@ import './Cart.css'
 export default class Cart extends Component {
     render() {
         return (
-            <div class="container">
+            <div class="container" id="container-cart">
             <div class="shopping-cart">
                 <div class="cart-info">
                     <div class="cart-item">
