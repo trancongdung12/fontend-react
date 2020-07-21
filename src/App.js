@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import Header from './components/partials/Header';
-import Carousel from './components/partials/Carousel';
 import Home from './components/contents/Home';
-import Footer from './components/partials/Footer';
 import Detail from './components/contents/Detail';
 import Cart from './components/contents/Cart';
 import {
@@ -10,15 +7,21 @@ import {
     Switch,
     Route,
   } from "react-router-dom";
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 class App extends Component {
     render() {
         return (
         <Router>
             <div>
-                 <Header/>
-                 <Carousel/>
                  {/* <Cart /> */}
                  <Switch>
+                    <Route exact path="/dang-nhap">
+                        <Login />
+                    </Route>
+                    <Route exact path="/dang-ky">
+                        <Register />
+                    </Route>
                     <Route exact path="/trang-chu">
                         <Home />
                     </Route>
@@ -29,7 +32,6 @@ class App extends Component {
                         <Detail />
                     </Route>
                 </Switch>
-                 <Footer/>
             </div>
             </Router>
         );

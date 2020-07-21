@@ -104,13 +104,17 @@ nav .shopping-cart {
     padding: 8px;
     margin-left: 10px;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
 }
-
+nav .login-text{
+    color: white;
+    text-decoration: none;
+}
 nav .cart-count {
     position: relative;
-    padding: 5px 10px;
+    font-size: 10px;
+    padding: 2px 5px;
     top: -15px;
     left: -10px;
     background: red;

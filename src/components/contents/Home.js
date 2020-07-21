@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import './Home.css'
+import './Home.css';
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
+import Carousel from '../partials/Carousel';
 import {Link} from "react-router-dom";
 class Home extends Component {
     constructor(){
@@ -20,6 +23,8 @@ class Home extends Component {
     render() {
         return (
             <div>
+                <Header/>
+                <Carousel/>
                 {this.state.categories.map((category)=>(
                 <div class="container">
                     <div class="content">
@@ -30,7 +35,9 @@ class Home extends Component {
                         <div class="content-item">
                             {category.products.map((item)=>(
                                 <div class="card">
-                                 <Link to={"trang-chu/chi-tiet/"+item.id}><img class="card-img" src={item.image} alt=""/> </Link>
+                                 <Link to={"trang-chu/chi-tiet/"+item.id}>
+                                     <img class="card-img" src={'http://127.0.0.1:8000'+item.image} alt="Image"/> 
+                                </Link>
                                 <p class="card-title">{item.name}</p>
                                 <p class="card-price">{item.price} đ</p>
                                
@@ -41,45 +48,7 @@ class Home extends Component {
                     </div>  
                 </div>
                 ))}
-                 {/* <div class="container">
-                 <div class="content">
-                     <div class="content-title">
-                         <div id="new-title" class="title">Bài Viết Mới</div>
-                     </div>
-                     <hr id="new-hr" class="content-hr" />
-                     <div id="content-new" class="content-item">
-                         <div class="item">
-                             <img class="item-img" src="http://145.demomanhan.com/wp-content/uploads/sites/146/2019/11/Yeezy-Boost-700-V2-Hospital-Blue-FV8424.jpg" alt=""/>
-                             <div class="item-caption">
-                                 <p class="item-title">GIÀY YEEZY BOOST 700 V2 HOSPITAL BLUE VỪA MỚI RA MẮT GIÁ BAO NHIÊU?</p>
-                                 <p class="item-text">Tháng 9 năm nay thị trường giày sneaker trở nên sôi động hơn bao giờ hết</p>
-                             </div>
-                         </div>
-                         <div class="item">
-                             <img class="item-img" src="http://145.demomanhan.com/wp-content/uploads/sites/146/2019/11/Yeezy-Boost-700-V2-Hospital-Blue-FV8424.jpg" alt=""/>
-                             <div class="item-caption">
-                                 <p class="item-title">GIÀY YEEZY BOOST 700 V2 HOSPITAL BLUE VỪA MỚI RA MẮT GIÁ BAO NHIÊU?</p>
-                                 <p class="item-text">Tháng 9 năm nay thị trường giày sneaker trở nên sôi động hơn bao giờ hết</p>
-                             </div>
-                         </div>
-                         <div class="item">
-                             <img class="item-img" src="http://145.demomanhan.com/wp-content/uploads/sites/146/2019/11/Yeezy-Boost-700-V2-Hospital-Blue-FV8424.jpg" alt=""/>
-                             <div class="item-caption">
-                                 <p class="item-title">GIÀY YEEZY BOOST 700 V2 HOSPITAL BLUE VỪA MỚI RA MẮT GIÁ BAO NHIÊU?</p>
-                                 <p class="item-text">Tháng 9 năm nay thị trường giày sneaker trở nên sôi động hơn bao giờ hết</p>
-                             </div>
-                         </div>
-                         <div class="item">
-                             <img class="item-img" src="http://145.demomanhan.com/wp-content/uploads/sites/146/2019/11/Yeezy-Boost-700-V2-Hospital-Blue-FV8424.jpg" alt=""/>
-                             <div class="item-caption">
-                                 <p class="item-title">GIÀY YEEZY BOOST 700 V2 HOSPITAL BLUE VỪA MỚI RA MẮT GIÁ BAO NHIÊU?</p>
-                                 <p class="item-text">Tháng 9 năm nay thị trường giày sneaker trở nên sôi động hơn bao giờ hết</p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
- 
-             </div> */}
+                <Footer/>
              </div>
 
         );

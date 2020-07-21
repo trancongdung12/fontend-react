@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import './Cart.css'
+import Header from '../partials/Header';
+import Footer from '../partials/Footer';
 export default class Cart extends Component {
     render() {
         return (
+            <div>
+            <Header/>
             <div class="container" id="container-cart">
             <div class="shopping-cart">
                 <div class="cart-info">
@@ -60,6 +64,8 @@ export default class Cart extends Component {
                     <button class="btn-buy">Mua Hàng</button>
                 </form>
             </div>
+        </div>
+        <Footer/>
         </div>
         )
     }
