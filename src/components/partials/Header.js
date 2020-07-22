@@ -8,7 +8,8 @@ class Header extends Component {
         let checkLogin = Cookies.get('id_user');
         if(!checkLogin){
             this.state = {
-                isLogin : false
+                isLogin : false,
+                userName: ''
             }
         }else{
             this.state = {
@@ -22,7 +23,22 @@ class Header extends Component {
          alert("Đăng xuất thành công!");
          this.setState({isLogin:false})
     }
+    componentDidMount(){
+        if(this.state.isLogin){
+            fetch("http://127.0.0.1:8000/api/user/name",{
+                headers:{
+                    "Authorization":  Cookies.get('id_user')
+                }
+            })
+            .then(res => res.json())
+            .then(
+              (result) => {
+                  this.setState({userName: result.data})
+              })
+        }
+    }
     render() {
+        console.log(this.state.userName);
         return (
             <nav>
                 <div class="menu-icon">
@@ -50,7 +66,7 @@ class Header extends Component {
                     <div class="shopping-cart">
                         <Link className="link-shopping-cart" to="/gio-hang"><span class="cart-title">Giỏ hàng </span><i class="fas fa-shopping-basket"> <span class="cart-count">1</span></i></Link>
                     </div>
-                    <div className="user-name" style={{color:"white"}}>Trần Công Dũng <button  onClick={this.onLogout}><span className="fa fa-sign-out-alt"></span></button></div>
+                    <div className="user-name" style={{color:"white"}}>{this.state.userName} <button  onClick={this.onLogout}><span className="fa fa-sign-out-alt"></span></button></div>
                     </div>
                  : 
                 <div class="shopping-cart">    

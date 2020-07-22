@@ -4,6 +4,7 @@ import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import Carousel from '../partials/Carousel';
 import {Link} from "react-router-dom";
+import Cookies from 'js-cookie';
 class Home extends Component {
     constructor(){
         super();
@@ -26,11 +27,13 @@ class Home extends Component {
             if(!cart){
               cart = [];
             }
-            var oldItem = cart.find((el)=>(el.id === item.id));
+            let userId = Cookies.get('id_user');
+            var oldItem = cart.find((el)=>(el.id === item.id && el.user_id === userId ));
             if(oldItem){
               oldItem.quantity  +=1;
             }else{
-              item.quantity =1;
+              item.user_id = userId;
+              item.quantity = 1;
               cart.push(item);
             }
             alert("Đã thêm vào giỏ hàng thành công!");

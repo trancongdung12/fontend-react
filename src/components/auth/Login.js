@@ -30,14 +30,6 @@ class Login extends Component {
             body: accountInJson
         })
         .then((response) => {
-            // if(response.status === 400){
-            //     alert('Email hoặc mật khẩu của bạn không đúng :(');
-            // }else if(response.status === 200){
-            //     this.setState({
-            //         account: response
-            //     })
-            //     alert('Đăng nhập thành công');
-            // }
             if(response.status === 200){
                 isAccount = true;
             }
