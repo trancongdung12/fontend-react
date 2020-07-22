@@ -107,22 +107,36 @@ nav .shopping-cart {
     font-size: 15px;
     font-weight: 500;
 }
+/* nav .shopping-cart i{
+    position: relative;
+    top: 12px;
+
+} */
 nav .login-text{
     color: white;
     text-decoration: none;
 }
 nav .cart-count {
+    width: 15px;
     position: relative;
     font-size: 10px;
     padding: 2px 5px;
-    top: -15px;
-    left: -10px;
+    top: -10px;
+    left: 0px;
     background: red;
     color: white;
     font-weight: 500;
     border-radius: 100%;
 }
-
+nav .link-shopping-cart{
+    text-decoration: none;
+    color: white;
+}
+nav .user-name{
+    margin-top: 8px;
+    font-weight: 500;
+    margin-left: 30px;
+}
 nav .menu-icon span,
 nav .cancel-icon,
 nav .search-icon {

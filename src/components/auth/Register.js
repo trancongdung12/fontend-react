@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
-import {Link} from "react-router-dom";
+import {Link,withRouter} from "react-router-dom";
 class Register extends Component {
     constructor(){
         super();
@@ -18,7 +18,7 @@ class Register extends Component {
         }
 
         let accountInJson = JSON.stringify(account);
-        fetch("http://127.0.0.1:8000/api/register", {
+        fetch("http://127.0.0.1:8000/api/auth/register", {
             method: "post",
             headers: {
                 "Content-Type":"application/json"
@@ -27,6 +27,7 @@ class Register extends Component {
         })
         .then((response) => {
             console.log(response);
+            // this.props.history.push('/trang-chu'); 
         });
     }
     render() {
@@ -56,4 +57,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);

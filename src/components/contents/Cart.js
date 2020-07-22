@@ -3,6 +3,16 @@ import './Cart.css'
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 export default class Cart extends Component {
+    constructor(){
+        super();
+        var cart = JSON.parse(localStorage.getItem("carts"));
+            if(!cart){
+              cart = [];
+        }
+        this.state = {
+            carts : cart
+        }
+    }
     render() {
         return (
             <div>
@@ -10,34 +20,22 @@ export default class Cart extends Component {
             <div class="container" id="container-cart">
             <div class="shopping-cart">
                 <div class="cart-info">
-                    <div class="cart-item">
+                    {this.state.carts.map((item)=>(
+                        <div class="cart-item">
                         <div class="cart-content">
                             <span class="fa fa-trash"></span>
-                            <img src="https://fsport247.com/cdn1/images/202002/thumb_img/nhung-doi-sneaker-nu-nen-co-thumb-G1413-1580557901623.jpg" alt="" />
-                            <p class="cart-title">Giày van</p>
+                            <img src={"http://127.0.0.1:8000"+item.image} alt="" />
+                            <p class="cart-title">{item.name}</p>
                         </div>
-                        <p class="cart-price">1,000,000 đ</p>
+                        <p class="cart-price">{item.price} đ</p>
                         <div class="cart-quantity">
                             <button>-</button>
-                            <input type="text" disabled value="1"/>
+                            <input type="text" disabled value={item.quantity}/>
                             <button>+</button>
                         </div>
-                        <p class="cart-price">1,000,000 đ</p>
+                        <p class="cart-price">{item.price*item.quantity} đ</p>
                     </div>
-                    <div class="cart-item">
-                        <div class="cart-content">
-                            <span class="fa fa-trash"></span>
-                            <img src="https://fsport247.com/cdn1/images/202002/thumb_img/nhung-doi-sneaker-nu-nen-co-thumb-G1413-1580557901623.jpg" alt="" />
-                            <p class="cart-title">Giày van</p>
-                        </div>
-                        <p class="cart-price">1,000,000 đ</p>
-                        <div class="cart-quantity">
-                            <button>-</button>
-                            <input type="text" disabled value="1"/>
-                            <button>+</button>
-                        </div>
-                        <p class="cart-price">1,000,000 đ</p>
-                    </div>
+                    ))}   
                 </div>
     
                 <div class="cart-total">

@@ -53,6 +53,7 @@
 
 .content .content-item .card .btn-add-cart {
     margin-top: 20px;
+    cursor: pointer;
     margin-left: 15px;
     height: 35px;
     width: 150px;

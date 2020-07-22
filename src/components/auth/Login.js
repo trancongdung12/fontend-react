@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Login.css';
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
+import Cookies from 'js-cookie';
 class Login extends Component {
     constructor(){
         super();
@@ -19,9 +20,9 @@ class Login extends Component {
             email:email,
             password:password
         }
-
+        let isAccount = false;
         let accountInJson = JSON.stringify(account);
-        fetch("http://127.0.0.1:8000/api/login", {
+        fetch("http://127.0.0.1:8000/api/auth/login", {
             method: "post",
             headers: {
                 "Content-Type":"application/json"
@@ -29,18 +30,30 @@ class Login extends Component {
             body: accountInJson
         })
         .then((response) => {
-            if(response.status === 400){
-                alert('Email hoặc mật khẩu của bạn không đúng :(');
-            }else if(response.status === 200){
-                this.setState({
-                    account: response
-                })
-                alert('Đăng nhập thành công');
+            // if(response.status === 400){
+            //     alert('Email hoặc mật khẩu của bạn không đúng :(');
+            // }else if(response.status === 200){
+            //     this.setState({
+            //         account: response
+            //     })
+            //     alert('Đăng nhập thành công');
+            // }
+            if(response.status === 200){
+                isAccount = true;
             }
+            return response.json();
+        }).then(response => {
+            if(isAccount){
+            alert('Đăng nhập thành công');
+            Cookies.set('id_user', response.data);
+            this.props.history.push('/trang-chu');
+            }else{
+                alert('Email hoặc mật khẩu của bạn không đúng :(');
+            }
+               
         });
     }
     render() {
-        console.log(this.state.account);
         return (
         <div className="body">
             <div id="container">
@@ -65,4 +78,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

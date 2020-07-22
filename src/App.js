@@ -14,7 +14,6 @@ class App extends Component {
         return (
         <Router>
             <div>
-                 {/* <Cart /> */}
                  <Switch>
                     <Route exact path="/dang-nhap">
                         <Login />
@@ -27,6 +26,9 @@ class App extends Component {
                     </Route>
                     <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route exact path="/gio-hang">
+                        <Cart />
                     </Route>
                     <Route exact path="/trang-chu/chi-tiet/:id">
                         <Detail />

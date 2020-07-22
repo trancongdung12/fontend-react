@@ -20,6 +20,24 @@ class Home extends Component {
           })
         
     }
+    onAddToCart(item){
+        return (event)=>{
+            var cart = JSON.parse(localStorage.getItem("carts"));
+            if(!cart){
+              cart = [];
+            }
+            var oldItem = cart.find((el)=>(el.id === item.id));
+            if(oldItem){
+              oldItem.quantity  +=1;
+            }else{
+              item.quantity =1;
+              cart.push(item);
+            }
+            alert("Đã thêm vào giỏ hàng thành công!");
+            // this.setState({countCartItem:cart.length})
+            localStorage.setItem("carts",JSON.stringify(cart));
+          }
+    }
     render() {
         return (
             <div>
@@ -41,7 +59,7 @@ class Home extends Component {
                                 <p class="card-title">{item.name}</p>
                                 <p class="card-price">{item.price} đ</p>
                                
-                                <button class="btn-add-cart"><i class="fas fa-shopping-basket"></i></button>
+                                <button onClick={this.onAddToCart(item)} class="btn-add-cart"><i class="fas fa-shopping-basket"></i></button>
                             </div>
                             ))}
                         </div>
