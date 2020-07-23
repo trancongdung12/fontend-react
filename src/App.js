@@ -9,6 +9,7 @@ import {
   } from "react-router-dom";
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Profile from './components/contents/Profile';
 class App extends Component {
     render() {
         return (
@@ -26,6 +27,9 @@ class App extends Component {
                     </Route>
                     <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route exact path="/trang-ca-nhan">
+                        <Profile />
                     </Route>
                     <Route exact path="/gio-hang">
                         <Cart />

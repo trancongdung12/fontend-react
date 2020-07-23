@@ -9,7 +9,7 @@ class Home extends Component {
     constructor(){
         super();
         this.state ={
-            categories : []
+            categories : [],    
         }
     }
     componentDidMount(){
@@ -20,6 +20,7 @@ class Home extends Component {
               this.setState({categories: result})
           })
         
+          
     }
     onAddToCart(item){
         return (event)=>{
@@ -36,15 +37,20 @@ class Home extends Component {
               item.quantity = 1;
               cart.push(item);
             }
+            let userCart = cart.filter( function (item) {
+                return item.user_id === userId;
+              });
+            this.forceUpdate();
+            Cookies.set('count_cart',userCart.length);
             alert("Đã thêm vào giỏ hàng thành công!");
-            // this.setState({countCartItem:cart.length})
             localStorage.setItem("carts",JSON.stringify(cart));
           }
     }
     render() {
+
         return (
             <div>
-                <Header/>
+                <Header />
                 <Carousel/>
                 {this.state.categories.map((category)=>(
                 <div class="container">
@@ -62,7 +68,7 @@ class Home extends Component {
                                 <p class="card-title">{item.name}</p>
                                 <p class="card-price">{item.price} đ</p>
                                
-                                <button onClick={this.onAddToCart(item)} class="btn-add-cart"><i class="fas fa-shopping-basket"></i></button>
+                                <button onClick={this.onAddToCart(item)} class="btn-add-cart btn-disable"><i class="fas fa-shopping-basket"></i></button>
                             </div>
                             ))}
                         </div>

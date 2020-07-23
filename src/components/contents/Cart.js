@@ -3,7 +3,8 @@ import './Cart.css'
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import Cookies from 'js-cookie';
-export default class Cart extends Component {
+import { withRouter } from 'react-router-dom'; 
+class Cart extends Component {
     constructor(){
         super();
         var cart = JSON.parse(localStorage.getItem("carts"));
@@ -13,6 +14,7 @@ export default class Cart extends Component {
         this.state = {
             carts : cart
         }
+        this.onSaveBill = this.onSaveBill.bind(this);
     }
     onSaveBill(event){
         event.preventDefault();
@@ -20,12 +22,15 @@ export default class Cart extends Component {
         let phone = event.target['phone'].value;
         let email = event.target['email'].value;
         let address = event.target['address'].value;
-        var cart = JSON.parse(localStorage.getItem("carts"));
+        var cart = this.state.carts;
         let userId = Cookies.get('id_user');
         let userCart = cart.filter( function (item) {
-            return item.user_id == userId;
+            return item.user_id === userId;
           });
-        console.log(userCart);
+        let difCart = cart.filter( function (item) {
+            return item.user_id !== userId;
+        }); 
+        localStorage.setItem("carts",JSON.stringify(difCart));
         var bill = {
             name:name,
             phone:phone,
@@ -45,6 +50,10 @@ export default class Cart extends Component {
         })
         .then((response) => {
             console.log(response);
+            alert("Mua hàng thành công !");
+            this.setState({
+                carts : difCart
+            })
             // this.props.history.push('/trang-chu'); 
         });
   
@@ -106,4 +115,4 @@ export default class Cart extends Component {
         </div>
         )
     }
-}
+}export default withRouter(Cart);

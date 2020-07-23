@@ -137,6 +137,10 @@ nav .user-name{
     font-weight: 500;
     margin-left: 30px;
 }
+nav .user-name .name{
+    text-decoration: none;
+    color: white;
+}
 nav .menu-icon span,
 nav .cancel-icon,
 nav .search-icon {

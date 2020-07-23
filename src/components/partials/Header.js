@@ -6,10 +6,16 @@ class Header extends Component {
     constructor(){
         super();
         let checkLogin = Cookies.get('id_user');
+        let cart = JSON.parse(localStorage.getItem("carts"));
+        let userCart = cart.filter( function (item) {
+            return item.user_id === checkLogin;
+          });
+        Cookies.set('count_cart',userCart.length);
         if(!checkLogin){
             this.state = {
                 isLogin : false,
-                userName: ''
+                userName: '',
+               
             }
         }else{
             this.state = {
@@ -21,10 +27,12 @@ class Header extends Component {
     onLogout(){
          Cookies.remove('id_user');
          alert("Đăng xuất thành công!");
-         this.setState({isLogin:false})
+         this.setState({isLogin:false});
+        //  this.props.histoty.push("dang-nhap");
     }
     componentDidMount(){
         if(this.state.isLogin){
+
             fetch("http://127.0.0.1:8000/api/user/name",{
                 headers:{
                     "Authorization":  Cookies.get('id_user')
@@ -37,8 +45,8 @@ class Header extends Component {
               })
         }
     }
+
     render() {
-        console.log(this.state.userName);
         return (
             <nav>
                 <div class="menu-icon">
@@ -64,9 +72,9 @@ class Header extends Component {
                 ?
                     <div style={{display:"flex"}}>
                     <div class="shopping-cart">
-                        <Link className="link-shopping-cart" to="/gio-hang"><span class="cart-title">Giỏ hàng </span><i class="fas fa-shopping-basket"> <span class="cart-count">1</span></i></Link>
+                <Link className="link-shopping-cart" to="/gio-hang"><span class="cart-title">Giỏ hàng </span><i class="fas fa-shopping-basket"> <span class="cart-count">{Cookies.get('count_cart')}</span></i></Link>
                     </div>
-                    <div className="user-name" style={{color:"white"}}>{this.state.userName} <button  onClick={this.onLogout}><span className="fa fa-sign-out-alt"></span></button></div>
+                    <div className="user-name"><Link className="name" to="/trang-ca-nhan">{this.state.userName}</Link> <button  onClick={this.onLogout}><span className="fa fa-sign-out-alt"></span></button></div>
                     </div>
                  : 
                 <div class="shopping-cart">    
