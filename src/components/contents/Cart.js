@@ -15,6 +15,9 @@ class Cart extends Component {
             carts : cart
         }
         this.onSaveBill = this.onSaveBill.bind(this);
+        this.onRemoveCart = this.onRemoveCart.bind(this);
+        this.minusQuantityCart = this.minusQuantityCart.bind(this);
+        this.plusQuantityCart = this.plusQuantityCart.bind(this);
     }
     onSaveBill(event){
         event.preventDefault();
@@ -37,9 +40,9 @@ class Cart extends Component {
             email:email,
             address:address,
             cart:JSON.stringify(userCart),
-            // user_id: userId
         }
         let billInJson = JSON.stringify(bill);
+        
         fetch("http://127.0.0.1:8000/api/bill", {
             method: "post",
             headers: {
@@ -54,31 +57,69 @@ class Cart extends Component {
             this.setState({
                 carts : difCart
             })
-            // this.props.history.push('/trang-chu'); 
+            this.props.history.push('/trang-chu'); 
         });
   
     }
+    onRemoveCart(key){
+        return (event)=>{
+            var newArr = this.state.carts;
+            newArr.splice(key, 1);
+            localStorage.setItem("carts",JSON.stringify(newArr));
+            this.setState({carts: newArr });  
+        }
+       }
+    minusQuantityCart(item,key){
+        return (event)=>{
+            let userId = Cookies.get('id_user');
+            var cart = this.state.carts;
+            let userCart = cart.filter( function (item) {
+                return item.user_id === userId;
+            });
+            var oldItem = userCart.find((el)=>(el.id === item.id));
+            oldItem.quantity  = oldItem.quantity-1 ;
+            if(oldItem.quantity == 0){
+                alert("Số lượng không được nhỏ hơn 1");
+                oldItem.quantity = 1;
+                
+            }
+            localStorage.setItem("carts",JSON.stringify(cart));          
+            this.setState({carts: cart});
+        }
+    }
+    plusQuantityCart(item){
+        return (event)=>{
+            let userId = Cookies.get('id_user');
+            var cart = this.state.carts;
+            let userCart = cart.filter( function (item) {
+                return item.user_id === userId;
+            });
+            var oldItem = userCart.find((el)=>(el.id === item.id));
+            oldItem.quantity  = oldItem.quantity+1 ;
+            this.setState({carts: cart});
+            localStorage.setItem("carts",JSON.stringify(cart));
+        }
+    }
     render() {
-        console.log(this.state.carts);
         return (
             <div>
             <Header/>
             <div class="container" id="container-cart">
             <div class="shopping-cart">
                 <div class="cart-info">
-                    {this.state.carts.map((item)=>(
+                    {this.state.carts.map((item,key)=>(
                         (item.user_id === Cookies.get('id_user'))?
                         <div class="cart-item">
                         <div class="cart-content">
-                            <span class="fa fa-trash"></span>
+                            <span onClick={this.onRemoveCart(key)} class="fa fa-trash"></span>
                             <img src={"http://127.0.0.1:8000"+item.image} alt="" />
                             <p class="cart-title">{item.name}</p>
                         </div>
                         <p class="cart-price">{item.price} đ</p>
                         <div class="cart-quantity">
-                            <button>-</button>
+                            <button onClick={this.minusQuantityCart(item)}>-</button>
                             <input type="text" disabled value={item.quantity}/>
-                            <button>+</button>
+                            <button onClick={this.plusQuantityCart(item)}>+</button>
                         </div>
                         <p class="cart-price">{item.price*item.quantity} đ</p>
                     </div>

@@ -41,3 +41,18 @@ table {
 .table-bordered thead th {
     border-bottom-width: 2px
 }
+.personal-info{
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+.personal-info hr,p{
+    margin-top: 20px;
+}
+.personal-info p{
+    font-weight: 500;
+}
+.btn-trash span{
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
+}
