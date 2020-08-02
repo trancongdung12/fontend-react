@@ -127,3 +127,102 @@
     margin-left: 35px;
     border: 1px solid #171c24;
 }
+.icon-messages{
+    position: fixed;
+    z-index: 1;
+    top: 800px;
+    right: 50px;
+}
+.messages{
+    position: fixed;
+    top: 480px;
+    right: 120px;
+    background: white;
+    z-index: 99999;
+    border: 1px solid #ddd;
+    width: 270px;
+}
+.messages .header-messages{
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: skyblue;
+    display: flex;
+    justify-content: space-between;
+}
+.messages .content-messages{
+    padding: 10px 15px;
+    height: 320px;
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 270px;
+}
+.messages .name-messages{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    top: -3px;
+    left: -3px;
+    font-weight: 500;
+    position: relative;
+}
+.messages .name-messages .name{
+    width: 100px;
+}
+.messages .name-messages .time{
+    font-size: 10px;
+}
+.messages .user-messages{
+    margin-bottom: 10px;
+}
+.messages .user-messages .content{
+    background: #ddd;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: auto;
+   
+    
+}
+.close-button{
+    background: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.messages .admin-messages{
+    margin-bottom: 10px;
+}
+.messages .admin-messages .name-messages{
+    font-size: 13px;
+    top: -3px;
+    
+    font-weight: 500;
+    position: relative;
+}
+.messages .admin-messages .content{
+    background: #00bcd4;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right:10px;
+    margin-bottom: 10px;
+    color: white;
+}
+.input-messages{
+    border-top: 1px solid #ddd;
+}
+.input-messages input{
+    padding: 10px;
+    width: 85%;
+    border: none;
+}
+.btn-send-messages{
+    background: none;
+    cursor: pointer;
+    border: none;
+}

@@ -7,6 +7,9 @@ class Header extends Component {
         super();
         let checkLogin = Cookies.get('id_user');
         let cart = JSON.parse(localStorage.getItem("carts"));
+        if(!cart){
+            cart = [];
+        }
         let userCart = cart.filter( function (item) {
             return item.user_id === checkLogin;
           });
