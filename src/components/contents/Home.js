@@ -6,6 +6,7 @@ import Footer from '../partials/Footer';
 import Carousel from '../partials/Carousel';
 import {Link} from "react-router-dom";
 import Cookies from 'js-cookie';
+import NumberFormat from 'react-number-format';
 class Home extends Component {
     constructor(){
         super();
@@ -129,7 +130,7 @@ class Home extends Component {
                                      <img class="card-img" src={'http://127.0.0.1:8000'+item.image} alt="Image"/> 
                                 </Link>
                                 <p class="card-title">{item.name}</p>
-                                <p class="card-price">{item.price} đ</p>
+                                <p class="card-price"><NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} /> đ</p>
                                
                                 <button onClick={this.onAddToCart(item)} class="btn-add-cart btn-disable"><i class="fas fa-shopping-basket"></i></button>
                             </div>

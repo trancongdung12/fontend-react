@@ -56,11 +56,11 @@ class Header extends Component {
                     <span class="fas fa-bars"></span></div>
                 <div class="logo">Dungx</div>
                 <div class="nav-items">
-                    <li><a href="/trang-chu">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="/trang-chu">Trang chủ</a></li>
+                    <li><a href="#">Về chúng tôi</a></li>
                     <li><a href="#">Blogs</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="#">Phản hồi</a></li>
                 </div>
                 <div class="search-icon">
                     <span class="fas fa-search"></span></div>

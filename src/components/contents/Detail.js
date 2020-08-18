@@ -3,6 +3,8 @@ import './Detail.css'
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import { withRouter } from 'react-router-dom';
+import NumberFormat from 'react-number-format';
+
 class Detail extends Component {
     constructor(props){
         super();
@@ -32,14 +34,14 @@ class Detail extends Component {
                 </div>
                 <div class="content-detail">
                     <h3 class="detail-title">{item.name}</h3>
-                    <p class="detail-price">{item.price} đ</p>
+                    <p class="detail-price"><NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} /> đ</p>
                     <ul class="detail-text">
                         <li>Tận hưởng sự thoải mái và hiệu quả của miếng lót giày OrthoLite® </li>
                         <li>Cảm giác mềm mại </li>
                         <li>Màu sản phẩm: Cloud White / Cloud White / Crystal White</li>
                         <li>{item.description}</li>
                     </ul>
-                    <div class="detail-size">
+                    {/* <div class="detail-size">
                         <b>Size</b>
                         <span>
                             <button class="btn-size">40</button>
@@ -47,7 +49,7 @@ class Detail extends Component {
                             <button class="btn-size">40</button>
                             <button class="btn-size">40</button>
                         </span>
-                    </div>
+                    </div> */}
                     <div class="detail-buy">
                         <div class="detail-quantity">
                             <button>-</button>

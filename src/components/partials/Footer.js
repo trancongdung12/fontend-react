@@ -7,10 +7,10 @@ class footer extends Component {
                     <div class="main-content">
                         <div class="left box">
                             <h2>
-                                About us</h2>
+                                Về chúng tôi</h2>
                             <div class="content">
                                 <p>
-                                    Writing something</p>
+                                   DungxShoe mang đến cho khách hàng những tôi giày tốt nhất và đẹp nhất trên thị trường hiện nay</p>
                                 <div class="social">
                                     <a><span class="fab fa-facebook-f"></span></a>
                                     <a><span class="fab fa-twitter"></span></a>
@@ -21,11 +21,11 @@ class footer extends Component {
                         </div>
                         <div class="center box">
                             <h2>
-                                Address</h2>
+                                Địa chỉ</h2>
                             <div class="content">
                                 <div class="place">
                                     <span class="fas fa-map-marker-alt"></span>
-                                    <span class="text">Da Nang, Viet Nam</span>
+                                    <span class="text">Đà Nẵng, Việt Nam</span>
                                 </div>
                                 <div class="phone">
                                     <span class="fas fa-phone"></span>
@@ -39,7 +39,7 @@ class footer extends Component {
                         </div>
                         <div class="right box">
                             <h2>
-                                Contact us</h2>
+                                Liên hệ</h2>
                             <div class="content">
                                 <form action="#">
                                     <div class="email">
@@ -60,7 +60,7 @@ class footer extends Component {
                                         <div class="bottom">
                                             <center>
                                                 <span class="credit">Edited By <a href="#">Dungx</a> | </span>
-                                                <span class="far fa-copyright"></span> 2020 All rights reserved.
+                                                <span class="far fa-copyright"></span> 2020
                                             </center>
                                         </div>
                                     </div>
