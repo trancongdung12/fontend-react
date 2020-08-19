@@ -225,3 +225,17 @@
     cursor: pointer;
     border: none;
 }
+.content .icon{
+    font-size: 25px;
+    cursor: pointer;
+    position: relative;
+    top: 180px;
+}
+.content .btn-disable{
+    background: none;
+    border: none;
+}
+.fa-chevron-circle-right{
+    position: relative;
+    left: 1300px;
+}

@@ -3,10 +3,10 @@
 }
 .search .content-item{
     flex-wrap: wrap;
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
 }
 .search .card {
-    margin-left: 0px !important;
+    margin-left: 10px !important;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     width: 200px !important;
@@ -16,7 +16,7 @@
     
 }
 .search .card:first-child {
-    margin-left: 0px !important;
+    margin-left: 10px !important;
 }
 .search .card img{
     width: 150px !important;

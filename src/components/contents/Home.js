@@ -15,12 +15,18 @@ class Home extends Component {
             messages:false,
             chatbox : [],
             textmessage: "",
-            id_user: ''    
+            id_user: '',
+            indexStart: 0,
+            indexEnd: 4,
+            disabledNext: false,
+            disabledPrev: true,    
         }
         this.onOpenChatBot = this.onOpenChatBot.bind(this);
         this.onCloseChatBot = this.onCloseChatBot.bind(this);
         this.onSendMessages = this.onSendMessages.bind(this);
         this.onChangeText = this.onChangeText.bind(this);
+        this.toggleNext = this.toggleNext.bind(this);
+        this.togglePrev = this.togglePrev.bind(this);
     }
     componentDidMount(){
         fetch("http://127.0.0.1:8000/api/category")
@@ -124,17 +130,19 @@ class Home extends Component {
         var indexStart = this.state.indexStart + 4;
         var indexEnd = this.state.indexEnd + 4;
         var disabledNext = false
-        if (indexEnd >= this.state.products.length) {
-          e.preventDefault()
-          disabledNext = true
-        }else if(this.state.searchItem && indexEnd > this.state.searchItem.length){
+        if (indexEnd == 8) {
           e.preventDefault()
           disabledNext = true
         }
+        // else
+        //  if(this.state.searchItem && indexEnd > this.state.searchItem.length){
+        //   e.preventDefault()
+        //   disabledNext = true
+        // }
         this.setState({indexStart: indexStart, indexEnd:indexEnd, disabledNext: disabledNext, disabledPrev: false })
     }
   
-//   this.state.searchItem.slice(this.state.indexStart, this.state.indexEnd).map((item)=>( 
+
       
     render() {
         return (
@@ -149,8 +157,10 @@ class Home extends Component {
                         <div class="title">{category.name}</div>
                         </div>
                         <hr class="content-hr" />
+                        <button className="btn-disable" disabled={this.state.disabledPrev}><span  onClick={this.togglePrev} className="icon fa fa-chevron-circle-left"></span></button>
+                        <button className="btn-disable" disabled={this.state.disabledNext}><span onClick={this.toggleNext} className="icon fa fa-chevron-circle-right"></span></button>
                         <div class="content-item">
-                            {category.products.map((item)=>(
+                            {category.products.slice(this.state.indexStart, this.state.indexEnd).map((item)=>(
                                 <div class="card">
                                  <Link to={"trang-chu/chi-tiet/"+item.id}>
                                      <img class="card-img" src={'http://127.0.0.1:8000'+item.image} alt="Image"/> 
@@ -161,6 +171,7 @@ class Home extends Component {
                                 <button onClick={this.onAddToCart(item)} class="btn-add-cart btn-disable"><i class="fas fa-shopping-basket"></i></button>
                             </div>
                             ))}
+                           
                         </div>
                     </div>  
                 </div>
