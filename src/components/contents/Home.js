@@ -45,12 +45,7 @@ class Home extends Component {
                     
                   })
             }
-          }, 1000)
-       
-
-
-        
-          
+          }, 1000)    
     }
     onAddToCart(item){
         return (event)=>{
@@ -110,6 +105,37 @@ class Home extends Component {
     onChangeText(event){
         this.setState({textmessage:event.target.value})
     }
+    togglePrev(e) {
+        var indexStart = this.state.indexStart - 4;
+        var indexEnd = this.state.indexEnd - 4;
+        var disabledPrev = false;
+    
+        if (indexStart <= 0) {
+        e.preventDefault()
+        indexStart = 0;
+        indexEnd = 4;  
+        disabledPrev = true
+        }
+    
+        this.setState({ indexStart: indexStart, indexEnd:indexEnd , disabledPrev: disabledPrev, disabledNext: false })
+    }
+    
+    toggleNext(e) {
+        var indexStart = this.state.indexStart + 4;
+        var indexEnd = this.state.indexEnd + 4;
+        var disabledNext = false
+        if (indexEnd >= this.state.products.length) {
+          e.preventDefault()
+          disabledNext = true
+        }else if(this.state.searchItem && indexEnd > this.state.searchItem.length){
+          e.preventDefault()
+          disabledNext = true
+        }
+        this.setState({indexStart: indexStart, indexEnd:indexEnd, disabledNext: disabledNext, disabledPrev: false })
+    }
+  
+//   this.state.searchItem.slice(this.state.indexStart, this.state.indexEnd).map((item)=>( 
+      
     render() {
         return (
     

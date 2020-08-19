@@ -68,7 +68,7 @@
 }
 
 .personal-info {
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .personal-info .form-control {
@@ -80,13 +80,13 @@
 
 .personal-info .form-control p {
     margin-top: 10px;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .personal-info .form-control input {
     height: 40px;
     padding: 0px 25px;
-    font-size: 18px;
+    font-size: 15px;
     width: 400px;
     margin-bottom: 10px;
 }
@@ -94,9 +94,9 @@
 .personal-info .btn-buy {
     cursor: pointer;
     margin-top: 20px;
-    margin-left: 45.5%;
+    margin-left: 71%;
     padding: 10px 30px;
-    font-size: 25px;
+    font-size: 15px;
     font-weight: 500;
     color: white;
     background: tomato;

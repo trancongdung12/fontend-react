@@ -130,12 +130,12 @@
 .icon-messages{
     position: fixed;
     z-index: 1;
-    top: 800px;
+    top: 600px;
     right: 50px;
 }
 .messages{
     position: fixed;
-    top: 480px;
+    top: 360px;
     right: 120px;
     background: white;
     z-index: 99999;
@@ -199,7 +199,6 @@
 .messages .admin-messages .name-messages{
     font-size: 13px;
     top: -3px;
-    
     font-weight: 500;
     position: relative;
 }

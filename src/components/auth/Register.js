@@ -4,7 +4,6 @@ import {Link,withRouter} from "react-router-dom";
 class Register extends Component {
     constructor(){
         super();
-
         this.onCreateAccount = this.onCreateAccount.bind(this);
     }
     onCreateAccount(event){

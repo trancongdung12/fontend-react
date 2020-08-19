@@ -10,6 +10,7 @@ import {
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Profile from './components/contents/Profile';
+import Search from './components/contents/Search';
 class App extends Component {
     render() {
         return (
@@ -27,6 +28,9 @@ class App extends Component {
                     </Route>
                     <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route exact path="/tim-kiem">
+                        <Search />
                     </Route>
                     <Route exact path="/trang-ca-nhan">
                         <Profile />
