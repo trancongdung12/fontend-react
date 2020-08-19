@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
     width: 100%;
-    height: 757px;
+    height: 940px;
     background-image: url('./image/img-01.png'),linear-gradient( #0250c5, #d43f8d);
     background-repeat: no-repeat;
     background-size: cover;
@@ -80,4 +80,13 @@
     position: relative;
     top: -15px;
     color: red;
+}
+@media (max-width: 980px) {
+    .body{
+        height: 700px;
+    }
+    #container{    
+        height: 700px;  
+        margin-left:10%;
+    }
 }

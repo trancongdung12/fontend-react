@@ -5,6 +5,7 @@ import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import ReactModal from 'react-modal';
 import './Profile.css'
+import NumberFormat from 'react-number-format';
 class Profile extends Component {
     constructor(){
         super();
@@ -164,7 +165,7 @@ class Profile extends Component {
                         <h5>Tên: {item.name}</h5>
                         <h5>Địa chỉ: {item.address}</h5>
                         <h5>Số điện thoại: {item.phone}</h5>
-                        <h5>Tổng tiền: <span style={{color:"red"}}>{item.phone} đ</span></h5>
+                        <h5>Tổng tiền: <span style={{color:"red"}}><NumberFormat value={item.total} displayType={'text'} thousandSeparator={true} /> đ</span></h5>
                         </td>
                         <td>
                             <table style={{width:"100%"}}> 
@@ -178,7 +179,7 @@ class Profile extends Component {
                                 <tr>
                                 <td><img src={"http://127.0.0.1:8000"+product.image} height="30px" width="30px" /></td>
                                 <td>{product.name}</td>
-                                <td>{product.price} đ</td>
+                                <td><NumberFormat value={product.price} displayType={'text'} thousandSeparator={true} /> đ</td>
                                 </tr>
                             
                             ))}

@@ -93,7 +93,7 @@ class Login extends Component {
                     <div class="form-title">
                         <p class="title">ĐĂNG NHẬP</p>
                     </div>
-                    <fieldset>
+              
                     <div class="form-control">
                         <span class="form-icon"><i class="far fa-envelope"></i></span><input name="email" type="text" placeholder="Email" className={(this.state.errors["email"])? "input-form error-valid" : "input-form"}  onChange={this.handleChange.bind(this, "email")} value={this.state.fields["email"]}/>
                         <small className="valid-input">  
@@ -108,7 +108,7 @@ class Login extends Component {
                     </div>
                     <button type="submit" class="btn-login">ĐĂNG NHẬP</button>
                     <p class="form-text">Bạn chưa có tài khoản?<Link to="/dang-ky">Đăng ký ngay</Link></p>
-                    </fieldset>
+         
                 </form>
                 </div>
             </div>

@@ -241,6 +241,13 @@ nav .search-icon {
         display: block;
     }
 }
+/* nav .form-search{
+    opacity:1;
+    z-index: -1;
+} */
+nav .cancel-icon .show{
+    display: block;
+}
 
 nav .logo.space {
     color: red;
@@ -256,8 +263,12 @@ nav .logo.space {
     nav form {
         right: 30px;
     }
-    .cart-title {
+    nav .cart-title {
         display: none;
+    }
+    nav .item-header-info{
+        margin-left: 130px;
+        margin-bottom: 5px;
     }
 }
 

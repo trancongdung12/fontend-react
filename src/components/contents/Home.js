@@ -18,6 +18,7 @@ class Home extends Component {
             id_user: '',
             indexStart: 0,
             indexEnd: 4,
+            indexEndResponsive:1,
             disabledNext: false,
             disabledPrev: true,    
         }
@@ -27,6 +28,8 @@ class Home extends Component {
         this.onChangeText = this.onChangeText.bind(this);
         this.toggleNext = this.toggleNext.bind(this);
         this.togglePrev = this.togglePrev.bind(this);
+        this.toggleNextRespon = this.toggleNextRespon.bind(this);
+        this.togglePrevRespon = this.togglePrevRespon.bind(this);
     }
     componentDidMount(){
         fetch("http://127.0.0.1:8000/api/category")
@@ -36,22 +39,22 @@ class Home extends Component {
               this.setState({categories: result})
           })
         
-          setInterval(() => {
-            var userId =Cookies.get('id_user');
-            if(userId){
-                fetch("http://127.0.0.1:8000/api/user/message", {
-                    method: "get",
-                    headers: {"Authorization": userId}
-                }).then(res => res.json())
-                .then(
-                  (result) => {       
-                      if(result != 1){   
-                         this.setState({chatbox:result[0].data,id_user:result[0].id_user})
-                      }
+        //   setInterval(() => {
+        //     var userId =Cookies.get('id_user');
+        //     if(userId){
+        //         fetch("http://127.0.0.1:8000/api/user/message", {
+        //             method: "get",
+        //             headers: {"Authorization": userId}
+        //         }).then(res => res.json())
+        //         .then(
+        //           (result) => {       
+        //               if(result != 1){   
+        //                  this.setState({chatbox:result[0].data,id_user:result[0].id_user})
+        //               }
                     
-                  })
-            }
-          }, 1000)    
+        //           })
+        //     }
+        //   }, 1000)    
     }
     onAddToCart(item){
         return (event)=>{
@@ -130,10 +133,10 @@ class Home extends Component {
         var indexStart = this.state.indexStart + 4;
         var indexEnd = this.state.indexEnd + 4;
         var disabledNext = false
-        if (indexEnd == 8) {
-          e.preventDefault()
-          disabledNext = true
-        }
+        // if (indexEnd == 8) {
+        //   e.preventDefault()
+        //   disabledNext = true
+        // }
         // else
         //  if(this.state.searchItem && indexEnd > this.state.searchItem.length){
         //   e.preventDefault()
@@ -141,7 +144,36 @@ class Home extends Component {
         // }
         this.setState({indexStart: indexStart, indexEnd:indexEnd, disabledNext: disabledNext, disabledPrev: false })
     }
-  
+    togglePrevRespon(e) {
+        var indexStart = this.state.indexStart - 1;
+        var indexEnd = this.state.indexEndResponsive - 1;
+        var disabledPrev = false;
+    
+        if (indexStart <= 0) {
+        e.preventDefault()
+        indexStart = 0;
+        indexEnd = 1;  
+        disabledPrev = true
+        }
+    
+        this.setState({ indexStart: indexStart, indexEndResponsive:indexEnd , disabledPrev: disabledPrev, disabledNext: false })
+    }
+    
+    toggleNextRespon(e) {
+        var indexStart = this.state.indexStart + 1;
+        var indexEnd = this.state.indexEndResponsive + 1;
+        var disabledNext = false
+        // if (indexEnd == 8) {
+        //   e.preventDefault()
+        //   disabledNext = true
+        // }
+        // else
+        //  if(this.state.searchItem && indexEnd > this.state.searchItem.length){
+        //   e.preventDefault()
+        //   disabledNext = true
+        // }
+        this.setState({indexStart: indexStart, indexEndResponsive:indexEnd, disabledNext: disabledNext, disabledPrev: false })
+    }
 
       
     render() {
@@ -159,6 +191,9 @@ class Home extends Component {
                         <hr class="content-hr" />
                         <button className="btn-disable" disabled={this.state.disabledPrev}><span  onClick={this.togglePrev} className="icon fa fa-chevron-circle-left"></span></button>
                         <button className="btn-disable" disabled={this.state.disabledNext}><span onClick={this.toggleNext} className="icon fa fa-chevron-circle-right"></span></button>
+
+                        <button className="btn-disable-respon" disabled={this.state.disabledPrev}><span  onClick={this.togglePrevRespon} className="icon fa fa-chevron-circle-left"></span></button>
+                        <button className="btn-disable-respon" disabled={this.state.disabledNext}><span onClick={this.toggleNextRespon} className="icon fa fa-chevron-circle-right"></span></button>
                         <div class="content-item">
                             {category.products.slice(this.state.indexStart, this.state.indexEnd).map((item)=>(
                                 <div class="card">
@@ -169,6 +204,20 @@ class Home extends Component {
                                 <p class="card-price"><NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} /> đ</p>
                                
                                 <button onClick={this.onAddToCart(item)} class="btn-add-cart btn-disable"><i class="fas fa-shopping-basket"></i></button>
+                            </div>
+                            ))}
+                           
+                        </div>
+                        <div class="content-item-responsive">
+                            {category.products.slice(this.state.indexStart, this.state.indexEndResponsive).map((item)=>(
+                                <div class="card">
+                                 <Link to={"trang-chu/chi-tiet/"+item.id}>
+                                     <img class="card-img" src={'http://127.0.0.1:8000'+item.image} alt="Image"/> 
+                                </Link>
+                                <p class="card-title">{item.name}</p>
+                                <p class="card-price"><NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} /> đ</p>
+                               
+                                <button onClick={this.onAddToCart(item)} class="btn-add-cart"><i class="fas fa-shopping-basket"></i></button>
                             </div>
                             ))}
                            

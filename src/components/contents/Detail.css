@@ -84,3 +84,11 @@ body{
     color: white;
     border: 1px solid tomato;
 }
+@media (max-width: 980px) {
+    #container-detail .content {
+        display: block;
+    }
+    #container-detail .content-img{
+        width: 100%;
+    }
+}

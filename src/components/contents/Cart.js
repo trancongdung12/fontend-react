@@ -31,6 +31,10 @@ class Cart extends Component {
         let userCart = cart.filter( function (item) {
             return item.user_id === userId;
           });
+        let total = 0;
+        userCart.map((item)=>(
+            total+= item.quantity*item.price
+        ))
         let difCart = cart.filter( function (item) {
             return item.user_id !== userId;
         }); 
@@ -40,6 +44,7 @@ class Cart extends Component {
             phone:phone,
             email:email,
             address:address,
+            total:total,
             cart:JSON.stringify(userCart),
         }
         let billInJson = JSON.stringify(bill);
@@ -123,7 +128,7 @@ class Cart extends Component {
                             <input type="text" disabled value={item.quantity}/>
                             <button onClick={this.plusQuantityCart(item)}>+</button>
                         </div>
-                        <p class="cart-price"><NumberFormat value={item.price*item.quantity} displayType={'text'} thousandSeparator={true} /> đ</p>
+                        <p class="cart-price text-style"><NumberFormat value={item.price*item.quantity} displayType={'text'} thousandSeparator={true} /> đ</p>
                         <input hidden value={total+=item.price*item.quantity} />
                     </div>
                     :""

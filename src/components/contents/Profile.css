@@ -101,3 +101,11 @@ table {
     font-weight: 500;
     font-size: 15px;
 }
+@media (max-width: 980px) {
+    .ReactModal__Content.ReactModal__Content--after-open {
+        margin-left: 10%;
+    }
+    .bill{
+        margin-left: -50px;
+    }
+}

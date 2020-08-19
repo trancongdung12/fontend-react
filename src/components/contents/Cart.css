@@ -72,6 +72,7 @@
 }
 
 .personal-info .form-control {
+    box-sizing: border-box;
     margin-left: 15%;
     width: 75%;
     display: flex;
@@ -101,4 +102,39 @@
     color: white;
     background: tomato;
     border: 1px solid tomato;
+}
+.text-style{
+    font-weight: bold;
+}
+@media (max-width: 980px) {
+    .shopping-cart .cart-item{
+        display: block;
+        margin-left: 0px;
+    }
+    #container-cart{
+        width: 92%;
+        margin-left: 20px;
+    }
+    .shopping-cart .cart-item .cart-content .cart-title{
+        font-size: 15px;
+    }
+    .shopping-cart .cart-price{
+       position: relative;
+       top: -50px;
+       left: 230px;
+    }
+    .shopping-cart .cart-total b{
+        margin-left: 20%;
+    }
+    .personal-info .form-control {
+        display: block;
+        left: 0px;
+    }
+    .personal-info .form-control input{
+        width: 90%;
+    }
+    .personal-info .btn-buy{
+        margin-left: 47%;
+    }
+    
 }

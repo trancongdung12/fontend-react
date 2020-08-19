@@ -88,6 +88,7 @@ class Search extends Component {
                 {
                         (this.state.products.length == 0)?<p><h1>Không tìm thấy :(</h1></p>
                         :
+                        <div>
                         <div class="content-item">
                             {this.state.products.map((item)=>( 
                                 <div class="card">
@@ -99,11 +100,28 @@ class Search extends Component {
                                     <p class="card-price"><NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} /> đ</p>
                                    
                                 </div>
-                                <button  class="btn-add-cart btn-disable"><i class="fas fa-shopping-basket"></i></button>
+                                <button  class="btn-add-cart"><i class="fas fa-shopping-basket"></i></button>
                                 </div>
                                 ))
                             }
                         </div>
+                        <div class="content-item-respon">
+                        {this.state.products.map((item)=>( 
+                            <div class="card">
+                             <Link to={"trang-chu/chi-tiet/"+item.id}>
+                                 <img class="card-img" src={'http://127.0.0.1:8000'+item.image} alt="Image"/> 
+                            </Link>
+                            <div className="card-control">
+                                <p class="card-title">{item.name}</p>
+                                <p class="card-price"><NumberFormat value={item.price} displayType={'text'} thousandSeparator={true} /> đ</p>
+                               
+                            </div>
+                            <button  class="btn-add-cart"><i class="fas fa-shopping-basket"></i></button>
+                            </div>
+                            ))
+                        }
+                         </div>
+                         </div>
                          } 
                     </div>  
                 </div>
