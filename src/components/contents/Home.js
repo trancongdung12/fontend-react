@@ -39,22 +39,29 @@ class Home extends Component {
               this.setState({categories: result})
           })
         
-        //   setInterval(() => {
-        //     var userId =Cookies.get('id_user');
-        //     if(userId){
-        //         fetch("http://127.0.0.1:8000/api/user/message", {
-        //             method: "get",
-        //             headers: {"Authorization": userId}
-        //         }).then(res => res.json())
-        //         .then(
-        //           (result) => {       
-        //               if(result != 1){   
-        //                  this.setState({chatbox:result[0].data,id_user:result[0].id_user})
-        //               }
+          setInterval(() => {
+            var userId =Cookies.get('id_user');
+            if(userId){
+                fetch("http://127.0.0.1:8000/api/user/message", {
+                    method: "get",
+                    headers: {"Authorization": userId}
+                }).then(res =>{
+                    console.log(res.status);
+                    if(res.status === 429){
+                        window.location.reload();
+                    }
+                    return res.json();
+                }
+                ).then(
+                  (result) => {       
+                      if(result != 1){   
+                          
+                          this.setState({chatbox:result[0].data,id_user:result[0].id_user})
+                      }
                     
-        //           })
-        //     }
-        //   }, 1000)    
+                  })
+            }
+          }, 3000)    
     }
     onAddToCart(item){
         return (event)=>{
@@ -133,10 +140,10 @@ class Home extends Component {
         var indexStart = this.state.indexStart + 4;
         var indexEnd = this.state.indexEnd + 4;
         var disabledNext = false
-        // if (indexEnd == 8) {
-        //   e.preventDefault()
-        //   disabledNext = true
-        // }
+        if (indexEnd == 8) {
+          e.preventDefault()
+          disabledNext = true
+        }
         // else
         //  if(this.state.searchItem && indexEnd > this.state.searchItem.length){
         //   e.preventDefault()
@@ -240,12 +247,15 @@ class Home extends Component {
                                 <div className="user-messages">
                                  <p className="name-messages">
                                    <span className="name"> {item.users.name} </span>
-                                     <span className="time">{item.created_at}</span></p>
+                                     <span className="time">{item.created_at}</span>
+                                     </p>
                                  <div className="content">{item.content}</div>
                                </div>
                                :(item.id_recipient===this.state.id_user)?
                                <div className="admin-messages">
-                               <p className="name-messages"><span className="time">{item.created_at}</span><span>Admin</span></p>
+                               <p className="name-messages">
+                                   <span className="time">{item.created_at}</span>
+                               <span>Admin</span></p>
                                <div className="content">{item.content}</div>
                              </div>:""
                           ))}                    

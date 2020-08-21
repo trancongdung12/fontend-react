@@ -39,6 +39,7 @@ class Header extends Component {
     onLogout(){
          Cookies.remove('id_user');
          alert("Đăng xuất thành công!");
+         window.location.reload();
          this.setState({isLogin:false});
         //  this.props.histoty.push("dang-nhap");
     }

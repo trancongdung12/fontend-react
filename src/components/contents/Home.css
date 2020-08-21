@@ -51,10 +51,10 @@
     margin-left: 100px;
 }
 
-.content  .card .btn-add-cart {
+.content .card .btn-add-cart {
     margin-top: 20px;
     cursor: pointer;
-    margin-left: 55px;
+    margin-left: 10px;
     height: 35px;
     width: 150px;
     border: 1px solid #ffc905;
@@ -71,13 +71,13 @@
     height: 200px;
 }
 
-.content  .card .card-title {
+.content .card .card-title {
     text-align: center;
     font-weight: 500;
     font-size: 20px;
 }
 
-.content  .card .card-price {
+.content .card .card-price {
     margin-top: 10px;
     text-align: center;
     font-weight: bold;
@@ -127,13 +127,15 @@
     margin-left: 35px;
     border: 1px solid #171c24;
 }
-.icon-messages{
+
+.icon-messages {
     position: fixed;
     z-index: 1;
     top: 600px;
     right: 50px;
 }
-.messages{
+
+.messages {
     position: fixed;
     top: 360px;
     right: 120px;
@@ -142,7 +144,8 @@
     border: 1px solid #ddd;
     width: 270px;
 }
-.messages .header-messages{
+
+.messages .header-messages {
     padding: 5px 10px;
     font-size: 15px;
     font-weight: 500;
@@ -150,14 +153,16 @@
     display: flex;
     justify-content: space-between;
 }
-.messages .content-messages{
+
+.messages .content-messages {
     padding: 10px 15px;
     height: 320px;
     overflow: scroll;
     overflow-x: hidden;
     width: 270px;
 }
-.messages .name-messages{
+
+.messages .name-messages {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -167,115 +172,134 @@
     font-weight: 500;
     position: relative;
 }
-.messages .name-messages .name{
+
+.messages .name-messages .name {
     width: 100px;
 }
-.messages .name-messages .time{
+
+.messages .name-messages .time {
     font-size: 10px;
 }
-.messages .user-messages{
+
+.messages .user-messages {
     margin-bottom: 10px;
 }
-.messages .user-messages .content{
-    background: #ddd;
+
+.messages .user-messages .content {
+    background: #00bcd4;
+    color: white;
     font-size: 13px;
     font-weight: 500;
     border-radius: 20px;
     padding: 5px 10px;
     width: auto;
-   
-    
 }
-.close-button{
+
+.close-button {
     background: none;
     border: none;
     font-size: 15px;
     cursor: pointer;
     font-weight: bold;
 }
-.messages .admin-messages{
+
+.messages .admin-messages {
     margin-bottom: 10px;
 }
-.messages .admin-messages .name-messages{
+
+.messages .admin-messages .name-messages {
     font-size: 13px;
     top: -3px;
     font-weight: 500;
     position: relative;
 }
-.messages .admin-messages .content{
-    background: #00bcd4;
+
+.messages .admin-messages .content {
+    background: #ddd;
+    color: black !important;
     font-size: 13px;
     font-weight: 500;
     border-radius: 20px;
     padding: 5px 10px;
-    margin-right:10px;
+    margin-right: 10px;
     margin-bottom: 10px;
     color: white;
 }
-.input-messages{
+
+.input-messages {
     border-top: 1px solid #ddd;
 }
-.input-messages input{
+
+.input-messages input {
     padding: 10px;
     width: 85%;
     border: none;
 }
-.btn-send-messages{
+
+.btn-send-messages {
     background: none;
     cursor: pointer;
     border: none;
 }
-.content .icon{
+
+.content .icon {
     font-size: 25px;
     cursor: pointer;
     position: relative;
     top: 180px;
 }
-.content .btn-disable{
+
+.content .btn-disable {
     background: none;
     border: none;
 }
-.fa-chevron-circle-right{
+
+.fa-chevron-circle-right {
     position: relative;
-    left: 1300px;
+    left: 1100px;
 }
-.content-item-responsive{
+
+.content-item-responsive {
     display: none;
 }
-.content-item-responsive .card{
-    padding:20px 50px;
+
+.content-item-responsive .card {
+    padding: 20px 50px;
 }
-.content-item-responsive .card img{
+
+.content-item-responsive .card img {
     width: 100%;
     height: 200px;
 }
-.content .btn-disable-respon{
+
+.content .btn-disable-respon {
     border: none;
     background: none;
-    display:none ;
+    display: none;
 }
-.content .btn-disable-respon .fa-chevron-circle-right{
+
+.content .btn-disable-respon .fa-chevron-circle-right {
     top: 160px;
 }
+
 @media (max-width: 980px) {
-    .content .fa-chevron-circle-right{
+    .content .fa-chevron-circle-right {
         left: 320px;
     }
-    .content .content-item{
+    .content .content-item {
         display: none;
     }
-    .content .content-item-responsive{
+    .content .content-item-responsive {
         display: block;
     }
-    .content .btn-disable-respon{
+    .content .btn-disable-respon {
         display: block;
     }
-    .content .btn-disable{
+    .content .btn-disable {
         display: none;
     }
-    .messages{
+    .messages {
         top: 200px;
         left: 150px;
     }
-    
 }
