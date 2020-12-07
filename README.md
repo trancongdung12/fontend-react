@@ -1,3 +1,11 @@
+## Website: 
+    + User: http://dungxshoe.tk/
+    + Admin: http://nameless-spire-70582.herokuapp.com/
+## Account: 
+    + Username: demo@gmail.com
+    + Password: demo123
+    
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
